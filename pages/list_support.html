@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Listar Chamados</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form" id="login-form">
+					<span class="login-form-title">
+						Listar Chamados
+					</span>
+
+                    <div class="wrap-input margin-top-35">
+    						<input class="input-form margin-bottom-35 txtBusca" type="text" id="txtBusca" name="txtBusca" autocomplete="off">
+						<span class="focus-input-form" data-placeholder="Pesquisar Chamado"></span>
+                    </div>
+                    <div class="wrap-input container-login-form-btn">
+						<button class="login-form-btn margin-top-35 margin-bottom-8" id="txtBuscar" type="submit" onclick="validarBusca()">
+                            Pesquisar <i class="fa fa-search textIcon"></i>
+						</button>
+					</div>
+
+                    <div class="wrap-input container-login-form-btn margin-top-35">
+                        <a rel="next" href="new_support.html" class="text2 login-form-btn margin-top-35 margin-bottom-8">Novo Chamado</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <div class="container">
+            <table class="wrap-input tabela">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título do Chamado</th>
+                    <th>Status</th>
+                    <th>Prioridade</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Instalar o office</td>
+                    <td>Fechado</td>
+                    <td>Normal</td>
+                    <td>
+                        <ul class="login-utils">
+                            <li class="margin-bottom-8 margin-top-8">
+                                <a href="edit_support.html" class="text2">
+                                    Editar
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Trocar notebook</td>
+                    <td>Aberto</td>
+                    <td>Normal</td>
+                    <td>
+                        <ul class="login-utils">
+                            <li class="margin-bottom-8 margin-top-8">
+                                <a href="edit_support.html" class="text2">
+                                    Editar
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Criar novo perfil de acesso</td>
+                    <td>Aberto</td>
+                    <td>Baixa</td>
+                    <td>
+                        <ul class="login-utils">
+                            <li class="margin-bottom-8 margin-top-8">
+                                <a href="edit_support.html" class="text2">
+                                    Editar
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Verificar registro errado</td>
+                    <td>Aberto</td>
+                    <td>Normal</td>
+                    <td>
+                        <ul class="login-utils">
+                            <li class="margin-bottom-8 margin-top-8">
+                                <a href="edit_support.html" class="text2">
+                                    Editar
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <script src="../js/validate.js"></script>
+
+	<script>
+		let inputs = document.getElementsByClassName('login-form');
+		for (let input of inputs) {
+			input.addEventListener("blur", function() {
+				if(input.value.trim() != ""){
+					input.classList.add("has-val");
+				} else {
+					input.classList.remove("has-val");
+				}
+			});
+		}
+
+		let form = document.getElementById('login-form');
+		form.addEventListener("submit", function(event) {
+			let inputs = document.getElementsByClassName('login-form');
+			for (let input of inputs) {
+				if(input.value.trim() == ""){
+					input.parentElement.classList.add("wrap-input-invalid");
+				}
+			}
+
+			event.preventDefault();
+		});
+	</script>
+
+</body>
+</html>

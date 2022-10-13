@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Editar Chamado</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form" id="login-form">
+					<span class="login-form-title">
+						Chamado ID: 1
+					</span>
+
+					<div class="label-text wrap-input margin-top-35">
+						<label class="label-text">Título:</label>
+                        <input class="input-form edit" id="titulo" name="titulo" value="Instalar o office."></input><br>
+                    </div>
+
+
+					<div class="label-text wrap-input margin-top-35">
+						<label class="label-text">Status:</label>
+                        <input class="input-form edit" id="status" name="status" value="Fechado"></input><br>
+                    </div>
+
+					<div class="label-text wrap-input margin-top-35">
+						<label class="label-text">Prioridade:</label>
+                        <input class="input-form edit" id="prioridade" name="prioridade" value="Normal"></input><br>
+                    </div>
+
+					<div class="label-text wrap-input margin-top-35">
+						<label class="label-text">Mensagem:</label>
+                        <input class="input-form edit" id="mensagem" name="mensagem" value="Por favor instalar o pacote office."></input><br>
+                    </div>
+
+					<div class="label-text wrap-input margin-top-35">
+						<label class="label-text">Resposta:</label>
+                        <input class="input-form edit" id="resposta" name="resposta" value="Já atendido! Vou encerrar o chamado."></input><br>
+                    </div>
+
+					<div class="container-login-form-btn">
+						<button class="login-form-btn margin-top-35 margin-bottom-8" type="submit" onclick="">
+							Cancelar
+						</button>
+					</div>
+					<div class="container-login-form-btn">
+						<button class="login-form-btn margin-top-35 margin-bottom-8" type="submit" onclick="">
+							Fechar
+						</button>
+					</div>
+					<div class="container-login-form-btn">
+						<button class="login-form-btn margin-top-35 margin-bottom-8" type="submit" onclick="">
+							Devolver
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/validate.js"></script>
+
+	<script>
+		let inputs = document.getElementsByClassName('input-form');
+		for (let input of inputs) {
+			input.addEventListener("blur", function() {
+				if(input.value.trim() != ""){
+					input.classList.add("has-val");
+				} else {
+					input.classList.remove("has-val");
+				}
+			});
+		}
+
+		let form = document.getElementById('login-form');
+		form.addEventListener("submit", function(event) {
+			let inputs = document.getElementsByClassName('input-form');
+			for (let input of inputs) {
+				if(input.value.trim() == ""){
+					input.parentElement.classList.add("wrap-input-invalid");
+				}
+			}
+
+			event.preventDefault();
+		});
+
+	</script>
+
+</body>
+</html>
